@@ -1,9 +1,17 @@
 {
   "version": 2,
-  "rewrites": [
-    {
-      "source": "/((?!api/).*)",
-      "destination": "/index.html"
-    }
+  "builds": [
+    { "src": "api/analyze.py", "use": "@vercel/python" },
+    { "src": "api/trend.py",   "use": "@vercel/python" },
+    { "src": "api/lens.py",    "use": "@vercel/python" },
+    { "src": "api/sheets.py",  "use": "@vercel/python" },
+    { "src": "index.html",     "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/analyze", "dest": "/api/analyze.py" },
+    { "src": "/api/trend",   "dest": "/api/trend.py"   },
+    { "src": "/api/lens",    "dest": "/api/lens.py"    },
+    { "src": "/api/sheets",  "dest": "/api/sheets.py"  },
+    { "src": "/(.*)",        "dest": "/index.html"     }
   ]
 }
