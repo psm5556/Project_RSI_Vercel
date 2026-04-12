@@ -2,6 +2,7 @@ __pycache__/
 *.py[cod]
 *.pyo
 .env
+.env.local
 .venv
 venv/
 env/
@@ -11,3 +12,9 @@ env/
 dist/
 build/
 .streamlit/secrets.toml
+
+# Next.js
+.next/
+node_modules/
+out/
+

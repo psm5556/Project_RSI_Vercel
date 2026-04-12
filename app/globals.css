@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+:root {
+  --app-bg:      #000000;
+  --app-surface: #0d1117;
+  --app-sidebar: #0a0a0a;
+  --app-card:    #111827;
+  --app-border:  #1e2535;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a3044; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3a4054; }
+
+/* Plotly toolbar transparency */
+.js-plotly-plot .plotly .modebar-container { opacity: 0.5; }
+.js-plotly-plot .plotly .modebar-container:hover { opacity: 1; }
+
+/* Smooth chart transitions */
+.plot-container { transition: opacity 0.2s; }
