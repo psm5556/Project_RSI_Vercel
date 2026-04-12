@@ -18,9 +18,3 @@
 ::-webkit-scrollbar-thumb { background: #2a3044; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #3a4054; }
 
-/* Plotly toolbar transparency */
-.js-plotly-plot .plotly .modebar-container { opacity: 0.5; }
-.js-plotly-plot .plotly .modebar-container:hover { opacity: 1; }
-
-/* Smooth chart transitions */
-.plot-container { transition: opacity 0.2s; }
