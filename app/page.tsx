@@ -93,6 +93,7 @@ export default function Page() {
   const [trend, setTrend]       = useState<TrendData | null>(null);
   const [lens, setLens]         = useState<LensData | null>(null);
 
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [loading, setLoading]         = useState(false);
   const [trendLoading, setTrendLoading] = useState(false);
   const [lensLoading, setLensLoading]   = useState(false);
@@ -136,9 +137,17 @@ export default function Page() {
 
   return (
     <div className="flex h-screen overflow-hidden bg-app-bg">
-      <Sidebar settings={settings} loading={loading} onChange={updateSettings} onRun={run} />
+      <Sidebar settings={settings} loading={loading} open={sidebarOpen} onChange={updateSettings} onRun={run} />
 
-      <main className="flex-1 overflow-y-auto p-6">
+      <main className="flex-1 overflow-y-auto p-6 pt-12 relative">
+        {/* 사이드바 토글 버튼 */}
+        <button
+          onClick={() => setSidebarOpen(o => !o)}
+          className="fixed top-3 left-3 z-50 w-7 h-7 flex items-center justify-center rounded-md bg-app-card border border-app-border text-app-muted hover:text-white hover:border-app-accent transition-all text-xs"
+          title={sidebarOpen ? '사이드바 닫기' : '사이드바 열기'}
+        >
+          {sidebarOpen ? '◀' : '▶'}
+        </button>
         {/* Status */}
         {loading && (
           <div className="flex items-center gap-2 text-sm text-app-muted mb-4">

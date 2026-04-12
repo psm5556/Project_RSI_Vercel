@@ -29,11 +29,12 @@ const LOOKBACKS = [
 interface Props {
   settings: Settings;
   loading: boolean;
+  open: boolean;
   onChange: (s: Partial<Settings>) => void;
   onRun: () => void;
 }
 
-export function Sidebar({ settings, loading, onChange, onRun }: Props) {
+export function Sidebar({ settings, loading, open, onChange, onRun }: Props) {
   const [sheetTickers, setSheetTickers] = useState<{ ticker: string; name: string }[]>([]);
 
   useEffect(() => {
@@ -41,7 +42,11 @@ export function Sidebar({ settings, loading, onChange, onRun }: Props) {
   }, []);
 
   return (
-    <aside className="w-[280px] min-w-[280px] bg-app-sidebar border-r border-app-border flex flex-col gap-4 p-4 overflow-y-auto">
+    <aside
+      className={`bg-app-sidebar border-r border-app-border flex flex-col gap-4 overflow-y-auto transition-all duration-300 ease-in-out ${
+        open ? 'w-[280px] min-w-[280px] p-4 opacity-100' : 'w-0 min-w-0 p-0 opacity-0 pointer-events-none'
+      }`}
+    >
       {/* Title */}
       <div>
         <div className="text-base font-bold text-white">📈 RSI 타겟 가격 계산기</div>
